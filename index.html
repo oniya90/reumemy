@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divyansh Search Engine by Divyansh Pachouli</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .shortcuts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .shortcut {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .shortcut img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 10px;
+        }
+
+        .shortcut span {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script>
+        function openWebsite() {
+            const input = document.getElementById('website').value.toLowerCase();
+            let url = '';
+            
+            // Define URLs for each website
+            switch (input) {
+                case 'google':
+                    url = 'https://www.google.com';
+                    break;
+                case 'youtube':
+                    url = 'https://www.youtube.com';
+                    break;
+                case 'facebook':
+                    url = 'https://www.facebook.com';
+                    break;
+                case 'instagram':
+                    url = 'https://www.instagram.com';
+                    break;
+                case 'x':
+                    url = 'https://x.com';
+                    break;
+                case 'baidu':
+                    url = 'https://www.baidu.com';
+                    break;
+                case 'wikipedia':
+                    url = 'https://www.wikipedia.org';
+                    break;
+                case 'yahoo':
+                    url = 'https://www.yahoo.com';
+                    break;
+                case 'yandex':
+                    url = 'https://yandex.ru';
+                    break;
+                case 'whatsapp':
+                    url = 'https://web.whatsapp.com';
+                    break;
+                case 'chatgpt':
+                    url = 'https://www.chatgpt.com';
+                    break;
+                case 'reddit':
+                    url = 'https://www.reddit.com';
+                    break;
+                case 'xvideos':
+                    url = 'https://www.xvideos.com';
+                    break;
+                case 'tiktok':
+                    url = 'https://www.tiktok.com';
+                    break;
+                case 'amazon':
+                    url = 'https://www.amazon.com';
+                    break;
+                case 'pornhub':
+                    url = 'https://www.pornhub.com';
+                    break;
+                case 'yahoo_japan':
+                    url = 'https://www.yahoo.co.jp';
+                    break;
+                case 'docomo':
+                    url = 'https://www.nttdocomo.co.jp';
+                    break;
+                case 'outlook':
+                    url = 'https://www.outlook.com';
+                    break;
+                case 'linkedin':
+                    url = 'https://www.linkedin.com';
+                    break;
+                case 'netflix':
+                    url = 'https://www.netflix.com';
+                    break;
+                case 'twitter':
+                    url = 'https://www.twitter.com';
+                    break;
+                case 'microsoft_365':
+                    url = 'https://www.office.com';
+                    break;
+                case 'pinterest':
+                    url = 'https://www.pinterest.com';
+                    break;
+                case 'xhamster':
+                    url = 'https://xhamster.com';
+                    break;
+                case 'zen_news':
+                    url = 'https://dzen.ru';
+                    break;
+                case 'xnxx':
+                    url = 'https://www.xnxx.com';
+                    break;
+                case 'bing':
+                    url = 'https://www.bing.com';
+                    break;
+                case 'max':
+                    url = 'https://www.max.com';
+                    break;
+                case 'microsoft_online':
+                    url = 'https://www.microsoftonline.com';
+                    break;
+                case 'bilibili':
+                    url = 'https://www.bilibili.com';
+                    break;
+                case 'naver':
+                    url = 'https://www.naver.com';
+                    break;
+                case 'vk':
+                    url = 'https://www.vk.com';
+                    break;
+                case 'discord':
+                    url = 'https://www.discord.com';
+                    break;
+                case 'mail.ru':
+                    url = 'https://www.mail.ru';
+                    break;
+                case 'yandex_turbo_pages':
+                    url = 'https://turbopages.org';
+                    break;
+                case 'samsung':
+                    url = 'https://www.samsung.com';
+                    break;
+                case 'xhamster.desi':
+                    url = 'https://www.xhamster.desi';
+                    break;
+                case 'stripchat':
+                    url = 'https://www.stripchat.com';
+                    break;
+                case 'sharepoint':
+                    url = 'https://www.sharepoint.com';
+                    break;
+                case 'qq':
+                    url = 'https://www.qq.com';
+                    break;
+                case 'ebay':
+                    url = 'https://www.ebay.com';
+                    break;
+                case 'duckduckgo':
+                    url = 'https://www.duckduckgo.com';
+                    break;
+                case 'fandom':
+                    url = 'https://www.fandom.com';
+                    break;
+                case 'quora':
+                    url = 'https://www.quora.com';
+                    break;
+                case 'roblox':
+                    url = 'https://www.roblox.com';
+                    break;
+                case 'weather':
+                    url = 'https://www.weather.com';
+                    break;
+                case 'telegram':
+                    url = 'https://t.me';
+                    break;
+                case 'stripchat':
+                    url = 'https://www.stripchat.com';
+                    break;
+                case 'discord':
+                    url = 'https://www.discord.com';
+                    break;
+                default:
+                    alert('Website not found! Please enter a valid website name.');
+                    return;
+            }
+            
+            // Open the URL in a new tab
+            window.open(url, '_blank');
+        }
+
+        function openShortcut(name) {
+            // Function to open predefined shortcuts
+            switch (name) {
+                case 'google':
+                    window.open('https://www.google.com', '_blank');
+                    break;
+                case 'youtube':
+                    window.open('https://www.youtube.com', '_blank');
+                    break;
+                case 'facebook':
+                    window.open('https://www.facebook.com', '_blank');
+                    break;
+                case 'instagram':
+                    window.open('https://www.instagram.com', '_blank');
+                    break;
+                case 'x':
+                    window.open('https://x.com', '_blank');
+                    break;
+                case 'baidu':
+                    window.open('https://www.baidu.com', '_blank');
+                    break;
+                case 'wikipedia':
+                    window.open('https://www.wikipedia.org', '_blank');
+                    break;
+                case 'yahoo':
+                    window.open('https://www.yahoo.com', '_blank');
+                    break;
+                case 'yandex':
+                    window.open('https://yandex.ru', '_blank');
+                    break;
+                case 'whatsapp':
+                    window.open('https://web.whatsapp.com', '_blank');
+                    break;
+                case 'chatgpt':
+                    window.open('https://www.chatgpt.com', '_blank');
+                    break;
+                case 'reddit':
+                    window.open('https://www.reddit.com', '_blank');
+                    break;
+                case 'xvideos':
+                    window.open('https://www.xvideos.com', '_blank');
+                    break;
+                case 'tiktok':
+                    window.open('https://www.tiktok.com', '_blank');
+                    break;
+                case 'amazon':
+                    window.open('https://www.amazon.com', '_blank');
+                    break;
+                case 'pornhub':
+                    window.open('https://www.pornhub.com', '_blank');
+                    break;
+                case 'yahoo_japan':
+                    window.open('https://www.yahoo.co.jp', '_blank');
+                    break;
+                case 'docomo':
+                    window.open('https://www.nttdocomo.co.jp', '_blank');
+                    break;
+                case 'outlook':
+                    window.open('https://www.outlook.com', '_blank');
+                    break;
+                case 'linkedin':
+                    window.open('https://www.linkedin.com', '_blank');
+                    break;
+                case 'netflix':
+                    window.open('https://www.netflix.com', '_blank');
+                    break;
+                case 'twitter':
+                    window.open('https://www.twitter.com', '_blank');
+                    break;
+                case 'microsoft_365':
+                    window.open('https://www.office.com', '_blank');
+                    break;
+                case 'pinterest':
+                    window.open('https://www.pinterest.com', '_blank');
+                    break;
+                case 'xhamster':
+                    window.open('https://xhamster.com', '_blank');
+                    break;
+                case 'zen_news':
+                    window.open('https://dzen.ru', '_blank');
+                    break;
+                case 'xnxx':
+                    window.open('https://www.xnxx.com', '_blank');
+                    break;
+                case 'bing':
+                    window.open('https://www.bing.com', '_blank');
+                    break;
+                case 'max':
+                    window.open('https://www.max.com', '_blank');
+                    break;
+                case 'microsoft_online':
+                    window.open('https://www.microsoftonline.com', '_blank');
+                    break;
+                case 'bilibili':
+                    window.open('https://www.bilibili.com', '_blank');
+                    break;
+                case 'naver':
+                    window.open('https://www.naver.com', '_blank');
+                    break;
+                case 'vk':
+                    window.open('https://www.vk.com', '_blank');
+                    break;
+                case 'discord':
+                    window.open('https://www.discord.com', '_blank');
+                    break;
+                case 'mail.ru':
+                    window.open('https://www.mail.ru', '_blank');
+                    break;
+                case 'yandex_turbo_pages':
+                    window.open('https://turbopages.org', '_blank');
+                    break;
+                case 'samsung':
+                    window.open('https://www.samsung.com', '_blank');
+                    break;
+                case 'xhamster.desi':
+                    window.open('https://www.xhamster.desi', '_blank');
+                    break;
+                case 'stripchat':
+                    window.open('https://www.stripchat.com', '_blank');
+                    break;
+                case 'sharepoint':
+                    window.open('https://www.sharepoint.com', '_blank');
+                    break;
+                case 'qq':
+                    window.open('https://www.qq.com', '_blank');
+                    break;
+                case 'ebay':
+                    window.open('https://www.ebay.com', '_blank');
+                    break;
+                case 'duckduckgo':
+                    window.open('https://www.duckduckgo.com', '_blank');
+                    break;
+                case 'fandom':
+                    window.open('https://www.fandom.com', '_blank');
+                    break;
+                case 'quora':
+                    window.open('https://www.quora.com', '_blank');
+                    break;
+                case 'roblox':
+                    window.open('https://www.roblox.com', '_blank');
+                    break;
+                case 'weather':
+                    window.open('https://www.weather.com', '_blank');
+                    break;
+                case 'telegram':
+                    window.open('https://t.me', '_blank');
+                    break;
+                default:
+                    alert('Shortcut not found!');
+                    return;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Divyansh Search Engine by Divyansh Pachouli</h1>
+    <form id="searchForm" onsubmit="openWebsite(); return false;">
+        <label for="website">Enter a website:</label>
+        <input type="text" id="website" name="website" required>
+        <button type="submit">Go</button>
+    </form>
+    
+    <div class="shortcuts">
+        <!-- Shortcut icons with onclick events -->
+        <div class="shortcut" onclick="openShortcut('google')">
+            <img src="https://www.google.com/favicon.ico" alt="Google">
+            <span>Google</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('youtube')">
+            <img src="https://www.youtube.com/s/desktop/8e3f1b5d/img/favicon_32x32.png" alt="YouTube">
+            <span>YouTube</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('facebook')">
+            <img src="https://www.facebook.com/favicon.ico" alt="Facebook">
+            <span>Facebook</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('instagram')">
+            <img src="https://instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" alt="Instagram">
+            <span>Instagram</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('x')">
+            <img src="https://x.com/favicon.ico" alt="X">
+            <span>X</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('baidu')">
+            <img src="https://www.baidu.com/favicon.ico" alt="Baidu">
+            <span>Baidu</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('wikipedia')">
+            <img src="https://www.wikipedia.org/static/favicon/wikipedia.ico" alt="Wikipedia">
+            <span>Wikipedia</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('yahoo')">
+            <img src="https://www.yahoo.com/favicon.ico" alt="Yahoo">
+            <span>Yahoo</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('yandex')">
+            <img src="https://yandex.ru/favicon.ico" alt="Yandex">
+            <span>Yandex</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('whatsapp')">
+            <img src="https://web.whatsapp.com/favicon.ico" alt="WhatsApp">
+            <span>WhatsApp</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('chatgpt')">
+            <img src="https://www.chatgpt.com/favicon.ico" alt="ChatGPT">
+            <span>ChatGPT</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('reddit')">
+            <img src="https://www.reddit.com/favicon.ico" alt="Reddit">
+            <span>Reddit</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('xvideos')">
+            <img src="https://www.xvideos.com/favicon.ico" alt="XVideos">
+            <span>XVideos</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('tiktok')">
+            <img src="https://www.tiktok.com/favicon.ico" alt="TikTok">
+            <span>TikTok</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('amazon')">
+            <img src="https://www.amazon.com/favicon.ico" alt="Amazon">
+            <span>Amazon</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('pornhub')">
+            <img src="https://www.pornhub.com/favicon.ico" alt="Pornhub">
+            <span>Pornhub</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('yahoo_japan')">
+            <img src="https://www.yahoo.co.jp/favicon.ico" alt="Yahoo Japan">
+            <span>Yahoo Japan</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('docomo')">
+            <img src="https://www.nttdocomo.co.jp/favicon.ico" alt="Docomo">
+            <span>Docomo</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('outlook')">
+            <img src="https://www.outlook.com/favicon.ico" alt="Outlook">
+            <span>Outlook</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('linkedin')">
+            <img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn">
+            <span>LinkedIn</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('netflix')">
+            <img src="https://www.netflix.com/favicon.ico" alt="Netflix">
+            <span>Netflix</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('twitter')">
+            <img src="https://www.twitter.com/favicon.ico" alt="Twitter">
+            <span>Twitter</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('microsoft_365')">
+            <img src="https://www.office.com/favicon.ico" alt="Microsoft 365">
+            <span>Microsoft 365</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('pinterest')">
+            <img src="https://www.pinterest.com/favicon.ico" alt="Pinterest">
+            <span>Pinterest</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('xhamster')">
+            <img src="https://xhamster.com/favicon.ico" alt="XHamster">
+            <span>XHamster</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('zen_news')">
+            <img src="https://dzen.ru/favicon.ico" alt="Zen News">
+            <span>Zen News</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('xnxx')">
+            <img src="https://www.xnxx.com/favicon.ico" alt="XNXX">
+            <span>XNXX</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('bing')">
+            <img src="https://www.bing.com/favicon.ico" alt="Bing">
+            <span>Bing</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('max')">
+            <img src="https://www.max.com/favicon.ico" alt="Max">
+            <span>Max</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('microsoft_online')">
+            <img src="https://www.microsoftonline.com/favicon.ico" alt="Microsoft Online">
+            <span>Microsoft Online</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('bilibili')">
+            <img src="https://www.bilibili.com/favicon.ico" alt="Bilibili">
+            <span>Bilibili</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('naver')">
+            <img src="https://www.naver.com/favicon.ico" alt="Naver">
+            <span>Naver</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('vk')">
+            <img src="https://www.vk.com/favicon.ico" alt="VK">
+            <span>VK</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('discord')">
+            <img src="https://www.discord.com/favicon.ico" alt="Discord">
+            <span>Discord</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('mail.ru')">
+            <img src="https://www.mail.ru/favicon.ico" alt="Mail.Ru">
+            <span>Mail.Ru</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('yandex_turbo_pages')">
+            <img src="https://turbopages.org/favicon.ico" alt="Yandex Turbo Pages">
+            <span>Yandex Turbo Pages</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('samsung')">
+            <img src="https://www.samsung.com/favicon.ico" alt="Samsung">
+            <span>Samsung</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('xhamster.desi')">
+            <img src="https://www.xhamster.desi/favicon.ico" alt="XHamster Desi">
+            <span>XHamster Desi</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('stripchat')">
+            <img src="https://www.stripchat.com/favicon.ico" alt="Stripchat">
+            <span>Stripchat</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('sharepoint')">
+            <img src="https://www.sharepoint.com/favicon.ico" alt="SharePoint">
+            <span>SharePoint</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('qq')">
+            <img src="https://www.qq.com/favicon.ico" alt="QQ">
+            <span>QQ</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('ebay')">
+            <img src="https://www.ebay.com/favicon.ico" alt="eBay">
+            <span>eBay</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('duckduckgo')">
+            <img src="https://www.duckduckgo.com/favicon.ico" alt="DuckDuckGo">
+            <span>DuckDuckGo</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('fandom')">
+            <img src="https://www.fandom.com/favicon.ico" alt="Fandom">
+            <span>Fandom</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('quora')">
+            <img src="https://www.quora.com/favicon.ico" alt="Quora">
+            <span>Quora</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('roblox')">
+            <img src="https://www.roblox.com/favicon.ico" alt="Roblox">
+            <span>Roblox</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('weather')">
+            <img src="https://www.weather.com/favicon.ico" alt="Weather">
+            <span>Weather</span>
+        </div>
+        <div class="shortcut" onclick="openShortcut('telegram')">
+            <img src="https://t.me/favicon.ico" alt="Telegram">
+            <span>Telegram</span>
+        </div>
+    </div>
+</body>
+</html>
